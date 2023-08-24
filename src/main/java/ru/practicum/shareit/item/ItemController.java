@@ -30,10 +30,10 @@ import java.util.List;
 @Validated
 public class ItemController {
     private final ItemService itemService;
-    private final String REQUEST_HEADER = "X-Sharer-User-Id";
+    private final String requestHeader = "X-Sharer-User-Id";
 
     @PostMapping
-    public ItemDto create(@RequestHeader(name = REQUEST_HEADER) Long userId,
+    public ItemDto create(@RequestHeader(name = requestHeader) Long userId,
                           @Valid @RequestBody ItemDto dto,
                           BindingResult result) {
         log.info("Получен запрос к эндпоинту /items create с headers {}", userId);
@@ -46,7 +46,7 @@ public class ItemController {
     }
 
     @GetMapping
-    public List<ItemDto> getAll(@RequestHeader(name = REQUEST_HEADER) Long userId) {
+    public List<ItemDto> getAll(@RequestHeader(name = requestHeader) Long userId) {
         log.info("Получен запрос к эндпоинту: /items getAll с headers {}", userId);
         return itemService.getAll(userId);
     }
@@ -58,7 +58,7 @@ public class ItemController {
     }
 
     @PatchMapping("/{id}")
-    public ItemDto update(@RequestHeader(name = REQUEST_HEADER) Long userId,
+    public ItemDto update(@RequestHeader(name = requestHeader) Long userId,
                           @PathVariable("id") Long itemId,
                           @RequestBody ItemDto dto,
                           BindingResult result) {
