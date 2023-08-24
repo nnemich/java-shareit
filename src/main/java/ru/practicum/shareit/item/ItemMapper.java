@@ -7,7 +7,10 @@ import ru.practicum.shareit.user.User;
  * Класс описывает ItemMapper, переводит итем в ДТО и обратно
  */
 
-public class ItemMapper {
+public final class ItemMapper {
+    private ItemMapper() {
+    }
+
     public static ItemDto toItemDto(Item item) {
         return ItemDto
                 .builder()

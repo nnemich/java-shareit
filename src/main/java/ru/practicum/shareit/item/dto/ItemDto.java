@@ -20,22 +20,12 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class ItemDto {
     private Long id;
-
     @NotBlank(message = "Имя не может быть пустым")
     private String name;
-
     @NotBlank(message = "Описание не может быть пустым")
     private String description;
-
     private User owner;
-
     @NotNull(message = "Статус бронирования не может быть пустым")
     private Boolean available;
-
     private ItemRequest request;
-
-
-    public ItemDto(String name, String description, Boolean available, Long aLong) {
-
-    }
 }

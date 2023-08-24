@@ -6,7 +6,10 @@ import ru.practicum.shareit.user.dto.UserDto;
  * Класс описывает UserMapper, переводит USER в ДТО и обратно
  */
 
-public class UserMapper {
+public final class UserMapper {
+    private UserMapper() {
+    }
+
     public static UserDto toUserDto(User newUser) {
         return UserDto.builder()
                 .id(newUser.getId())
