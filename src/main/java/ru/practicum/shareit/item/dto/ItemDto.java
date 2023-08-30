@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.practicum.shareit.request.ItemRequest;
-import ru.practicum.shareit.user.User;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -24,8 +22,6 @@ public class ItemDto {
     private String name;
     @NotBlank(message = "Описание не может быть пустым")
     private String description;
-    private User owner;
     @NotNull(message = "Статус бронирования не может быть пустым")
     private Boolean available;
-    private ItemRequest request;
 }

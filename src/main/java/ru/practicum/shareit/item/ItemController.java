@@ -27,21 +27,14 @@ import java.util.List;
 @RequestMapping("/items")
 @Slf4j
 @AllArgsConstructor
-@Validated
 public class ItemController {
     private final ItemService itemService;
     private final String requestHeader = "X-Sharer-User-Id";
 
     @PostMapping
     public ItemDto create(@RequestHeader(name = requestHeader) Long userId,
-                          @Valid @RequestBody ItemDto dto,
-                          BindingResult result) {
+                          @Valid @RequestBody ItemDto dto) {
         log.info("Получен запрос к эндпоинту /items create с headers {}", userId);
-        if (result.hasErrors()) {
-            String errorMessage = result.getFieldError("fieldName").getDefaultMessage();
-            log.warn(errorMessage);
-            throw new ValidationException(errorMessage);
-        }
         return itemService.create(dto, userId);
     }
 
@@ -60,22 +53,15 @@ public class ItemController {
     @PatchMapping("/{id}")
     public ItemDto update(@RequestHeader(name = requestHeader) Long userId,
                           @PathVariable("id") Long itemId,
-                          @RequestBody ItemDto dto,
-                          BindingResult result) {
+                          @RequestBody ItemDto dto) {
         log.info("Получен запрос к эндпоинту: /items update с ItemId={} с headers {}", itemId, userId);
-        if (result.hasErrors()) {
-            String errorMessage = result.getFieldError("fieldName").getDefaultMessage();
-            log.warn(errorMessage);
-            throw new ValidationException(errorMessage);
-        }
         return itemService.update(itemId, dto, userId);
     }
 
     @DeleteMapping("/{id}")
-    public HttpStatus delete(@PathVariable("id") Long userId) {
+    public void delete(@PathVariable("id") Long userId) {
         log.info("Получен запрос к эндпоинту: /items delete с id={}", userId);
         itemService.delete(userId);
-        return HttpStatus.OK;
     }
 
     @GetMapping("/search")

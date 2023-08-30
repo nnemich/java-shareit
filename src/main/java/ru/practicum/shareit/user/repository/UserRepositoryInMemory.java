@@ -46,10 +46,7 @@ public class UserRepositoryInMemory implements UserRepository {
 
     @Override
     public User update(Long id, User user) {
-        User oldUser = userMap.values().stream()
-                .filter(val -> val.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new ValidationIdException("Пользователь не найден"));
+        User oldUser = findById(id);
         String oldKey = oldUser.getEmail();
         if (userMap.containsKey(user.getEmail()) && !oldKey.equals(user.getEmail())) {
             throw new UserAlreadyExistException("Пользователь с такой почтой уже существует");
@@ -62,19 +59,12 @@ public class UserRepositoryInMemory implements UserRepository {
             oldUser.setEmail(user.getEmail());
         }
 
-
-        userMap.remove(oldKey);
-        userMap.put(oldUser.getEmail(), oldUser);
-
         return oldUser;
     }
 
     @Override
     public void delete(Long id) {
-        User oldUser = userMap.values().stream()
-                .filter(val -> val.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new ValidationIdException("Пользователь не найден"));
+        User oldUser = findById(id);
         userMap.remove(oldUser.getEmail());
     }
 }

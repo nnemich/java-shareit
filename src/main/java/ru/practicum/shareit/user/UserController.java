@@ -32,13 +32,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public UserDto create(@Valid @RequestBody UserDto user, BindingResult result) {
+    public UserDto create(@Valid @RequestBody UserDto user) {
         log.info("Получен запрос к эндпоинту /users create");
-        if (result.hasErrors()) {
-            String errorMessage = result.getFieldError("fieldName").getDefaultMessage();
-            log.warn(errorMessage);
-            throw new ValidationException(errorMessage);
-        }
         return userService.create(user);
     }
 
@@ -56,21 +51,14 @@ public class UserController {
 
     @PatchMapping("/{id}")
     public UserDto update(@PathVariable("id") Long userId,
-                          @RequestBody UserDto dto,
-                          BindingResult result) {
+                          @RequestBody UserDto dto) {
         log.info("Получен запрос к эндпоинту: /users update с id={}", userId);
-        if (result.hasErrors()) {
-            String errorMessage = result.getFieldError("fieldName").getDefaultMessage();
-            log.warn(errorMessage);
-            throw new ValidationException(errorMessage);
-        }
         return userService.update(userId, dto);
     }
 
     @DeleteMapping("/{id}")
-    public HttpStatus delete(@PathVariable("id") Long userId) {
+    public void delete(@PathVariable("id") Long userId) {
         log.info("Получен запрос к эндпоинту: /users delete с id={}", userId);
         userService.delete(userId);
-        return HttpStatus.OK;
     }
 }

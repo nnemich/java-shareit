@@ -59,7 +59,6 @@ public class ItemRepositoryInMemory implements ItemRepository {
         if (item.getAvailable() != null) {
             oldItem.setAvailable(item.getAvailable());
         }
-        itemMap.put(id, oldItem);
 
         return oldItem;
     }
@@ -72,9 +71,6 @@ public class ItemRepositoryInMemory implements ItemRepository {
     @Override
     public List<Item> search(String text) {
         List<Item> itemList = new ArrayList<>();
-        if (text.isBlank()) {
-            return itemList;
-        }
 
         for (Map.Entry<Long, Item> entry : itemMap.entrySet()) {
             Item item = entry.getValue();
