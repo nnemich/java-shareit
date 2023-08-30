@@ -59,6 +59,7 @@ public class ItemRepositoryInMemory implements ItemRepository {
         if (item.getAvailable() != null) {
             oldItem.setAvailable(item.getAvailable());
         }
+        itemMap.put(id, oldItem);
 
         return oldItem;
     }

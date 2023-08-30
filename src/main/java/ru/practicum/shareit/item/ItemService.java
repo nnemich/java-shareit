@@ -9,6 +9,7 @@ import ru.practicum.shareit.user.User;
 import ru.practicum.shareit.user.UserService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -53,11 +54,10 @@ public class ItemService {
     }
 
     public List<ItemDto> search(String text) {
-        List<Item> itemList = new ArrayList<>();
-        if (!text.isBlank()) {
-            itemList = itemRepository.search(text.toLowerCase(Locale.ROOT));
+        if (text.isBlank()) {
+            return Collections.emptyList();
         }
-
+        List<Item> itemList = itemRepository.search(text.toLowerCase(Locale.ROOT));
         return itemList.stream().map(ItemMapper::toItemDto).collect(Collectors.toList());
     }
 }

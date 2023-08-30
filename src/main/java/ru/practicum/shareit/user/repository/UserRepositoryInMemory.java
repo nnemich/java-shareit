@@ -59,6 +59,9 @@ public class UserRepositoryInMemory implements UserRepository {
             oldUser.setEmail(user.getEmail());
         }
 
+        userMap.remove(oldKey);
+        userMap.put(oldUser.getEmail(), oldUser);
+
         return oldUser;
     }
 
