@@ -31,17 +31,10 @@ public class ErrorHandler {
         return new ErrorResponse(e.getMessage());
     }
 
-    @ExceptionHandler(ValidationException.class)
+    @ExceptionHandler({ValidationException.class, MethodArgumentNotValidException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse handleValidationException(final ValidationException e) {
+    public ErrorResponse handleValidationAndMethodArgumentValidationException(final RuntimeException e) {
         log.warn("Ошибка ValidationException {}", e.getMessage(), e);
-        return new ErrorResponse(e.getMessage());
-    }
-
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse handleMethodArgumentValidationException(final MethodArgumentNotValidException e) {
-        log.warn("Ошибка MethodArgumentNotValidException {}", e.getMessage(), e);
         return new ErrorResponse(e.getMessage());
     }
 
