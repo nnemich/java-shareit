@@ -5,9 +5,11 @@ import ru.practicum.shareit.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
 /**
  * Класс описывает модель Item
  */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

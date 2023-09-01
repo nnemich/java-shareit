@@ -92,14 +92,14 @@ public class ItemService {
         }
         List<Item> itemList =
                 itemRepository.findByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCaseAndAvailable(
-                text, text, true);
+                        text, text, true);
         return itemList.stream().map(ItemMapper::toItemDto).collect(Collectors.toList());
     }
 
     @Transactional
     public Comment createComment(CommentDto dto, Long userId, Long itemId) {
-        List<Booking> booking = bookingRepository.findAllByBookerIdAndItemIdAndStatusNotAndStartBefore(userId, itemId
-                , Status.REJECTED, LocalDateTime.now());
+        List<Booking> booking = bookingRepository.findAllByBookerIdAndItemIdAndStatusNotAndStartBefore(userId, itemId,
+                Status.REJECTED, LocalDateTime.now());
         if (booking.isEmpty()) {
             throw new ItemIsNotAvailableForBookingException("Вы не можете оставить отзыв, т.к. не бронировали вещь");
         }
