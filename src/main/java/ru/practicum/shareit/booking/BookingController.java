@@ -29,17 +29,17 @@ import java.util.List;
 @AllArgsConstructor
 public class BookingController {
     private final BookingService bookingService;
-    private static final String requestHeader = "X-Sharer-User-Id";
+    private static final String REQUEST_HEADER = "X-Sharer-User-Id";
 
     @PostMapping
-    public BookingResponseDto addReservation(@RequestHeader(name = requestHeader) Long userId,
+    public BookingResponseDto addReservation(@RequestHeader(name = REQUEST_HEADER) Long userId,
                                              @Valid @RequestBody BookingDto dto) {
         log.info("Получен запрос к эндпоинту /bookings addReservation с headers {}", userId);
         return bookingService.create(dto, userId);
     }
 
     @PatchMapping("/{bookingId}")
-    public BookingResponseDto updateStatus(@RequestHeader(name = requestHeader) Long userId,
+    public BookingResponseDto updateStatus(@RequestHeader(name = REQUEST_HEADER) Long userId,
                                            @PathVariable("bookingId") Long bookingId,
                                            @RequestParam("approved") Boolean approved) {
         log.info("Получен запрос к эндпоинту /bookings updateStatus с headers {}, с bookingId {}, статус {}",
@@ -48,21 +48,21 @@ public class BookingController {
     }
 
     @GetMapping("/{bookingId}")
-    public BookingResponseDto getById(@RequestHeader(name = requestHeader) Long userId,
+    public BookingResponseDto getById(@RequestHeader(name = REQUEST_HEADER) Long userId,
                                       @PathVariable("bookingId") Long bookingId) {
         log.info("Получен запрос к эндпоинту /bookings getById с headers {}, с bookingId {}", userId, bookingId);
         return bookingService.getById(userId, bookingId);
     }
 
     @GetMapping
-    public List<BookingResponseDto> getAllReservation(@RequestHeader(name = requestHeader) Long userId,
+    public List<BookingResponseDto> getAllReservation(@RequestHeader(name = REQUEST_HEADER) Long userId,
                                                       @RequestParam(value = "state", required = false) State state) {
         log.info("Получен запрос к эндпоинту /bookings getAllReservation с state {}", state);
         return bookingService.getAllReserve(userId, state, "booker");
     }
 
     @GetMapping("/owner")
-    public List<BookingResponseDto> getReservationForOwner(@RequestHeader(name = requestHeader) Long userId,
+    public List<BookingResponseDto> getReservationForOwner(@RequestHeader(name = REQUEST_HEADER) Long userId,
                                                            @RequestParam(value = "state", required = false) State state) {
         log.info("Получен запрос к эндпоинту /bookings getAllReservation с state {}", state);
         return bookingService.getAllReserve(userId, state, "owner");

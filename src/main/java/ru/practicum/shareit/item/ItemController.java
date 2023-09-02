@@ -28,30 +28,30 @@ import java.util.Map;
 @AllArgsConstructor
 public class ItemController {
     private final ItemService itemService;
-    private static final String requestHeader = "X-Sharer-User-Id";
+    private static final String REQUEST_HEADER = "X-Sharer-User-Id";
 
     @PostMapping
-    public ItemDto create(@RequestHeader(name = requestHeader) Long userId,
+    public ItemDto create(@RequestHeader(name = REQUEST_HEADER) Long userId,
                           @Valid @RequestBody ItemDto dto) {
         log.info("Получен запрос к эндпоинту /items create с headers {}", userId);
         return itemService.create(dto, userId);
     }
 
     @GetMapping
-    public List<ItemResponseDto> getAll(@RequestHeader(name = requestHeader) Long userId) {
+    public List<ItemResponseDto> getAll(@RequestHeader(name = REQUEST_HEADER) Long userId) {
         log.info("Получен запрос к эндпоинту: /items getAll с headers {}", userId);
         return itemService.getAll(userId);
     }
 
     @GetMapping("/{id}")
-    public ItemResponseDto getById(@RequestHeader(name = requestHeader) Long userId,
+    public ItemResponseDto getById(@RequestHeader(name = REQUEST_HEADER) Long userId,
                                    @PathVariable("id") Long itemId) {
         log.info("Получен запрос к эндпоинту: /items geById с id={}", itemId);
         return itemService.getById(itemId, userId);
     }
 
     @PatchMapping("/{id}")
-    public ItemDto update(@RequestHeader(name = requestHeader) Long userId,
+    public ItemDto update(@RequestHeader(name = REQUEST_HEADER) Long userId,
                           @PathVariable("id") Long itemId,
                           @RequestBody Map<Object, Object> fields) {
         log.info("Получен запрос к эндпоинту: /items update с ItemId={} с headers {}", itemId, userId);

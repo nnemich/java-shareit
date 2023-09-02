@@ -20,12 +20,12 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
-@Transactional(readOnly = true)
 public class BookingService {
     private final BookingRepository bookingRepository;
     private final UserService userService;
     private final ItemRepository itemRepository;
 
+    @Transactional
     public BookingResponseDto create(BookingDto dto, Long bookerId) {
         if (dto.getStart().isAfter(dto.getEnd()) || dto.getStart().equals(dto.getEnd())) {
             throw new ItemIsNotAvailableForBookingException("Дата начала позже или равна окончанию бронирования");
@@ -47,6 +47,7 @@ public class BookingService {
         return BookingMapper.toBookingDto(bookingRepository.save(booking));
     }
 
+    @Transactional
     public BookingResponseDto setApproved(Long userId, Long bookingId, Boolean approved) {
         Booking booking = bookingRepository.findBookingOwner(bookingId, userId);
 
