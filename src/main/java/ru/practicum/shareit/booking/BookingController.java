@@ -29,7 +29,7 @@ import java.util.List;
 @AllArgsConstructor
 public class BookingController {
     private final BookingService bookingService;
-    private final static String requestHeader = "X-Sharer-User-Id";
+    private static final String requestHeader = "X-Sharer-User-Id";
 
     @PostMapping
     public BookingResponseDto addReservation(@RequestHeader(name = requestHeader) Long userId,

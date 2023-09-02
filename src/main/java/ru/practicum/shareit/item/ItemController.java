@@ -28,7 +28,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class ItemController {
     private final ItemService itemService;
-    private final String requestHeader = "X-Sharer-User-Id";
+    private static final String requestHeader = "X-Sharer-User-Id";
 
     @PostMapping
     public ItemDto create(@RequestHeader(name = requestHeader) Long userId,
