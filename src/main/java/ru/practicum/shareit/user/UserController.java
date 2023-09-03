@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.practicum.shareit.user.dto.UserDto;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * * Класс описывает UserController с следующими энпоинтами
@@ -48,9 +49,9 @@ public class UserController {
     @PatchMapping("/{id}")
     public UserDto update(@Validated(Update.class)
                           @PathVariable("id") Long userId,
-                          @RequestBody UserDto dto) {
+                          @RequestBody Map<Object, Object> fields) {
         log.info("Получен запрос к эндпоинту: /users update с id={}", userId);
-        return userService.update(userId, dto);
+        return userService.update(userId, fields);
     }
 
     @DeleteMapping("/{id}")
