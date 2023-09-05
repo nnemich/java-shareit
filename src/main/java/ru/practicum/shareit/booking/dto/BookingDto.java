@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class BookingDto {
+
     private Long id;
     @NotNull(message = "itemId не может быть пустым")
     private Long itemId;

@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
+@Transactional(readOnly = true)
 public class UserService {
     private final UserRepository userRepository;
 
@@ -25,7 +26,8 @@ public class UserService {
     public UserDto create(UserDto dto) {
         User user = UserMapper.toUser(dto);
         User newUser = userRepository.save(user);
-        return UserMapper.toUserDto(newUser);
+        UserDto userDto =  UserMapper.toUserDto(newUser);
+        return userDto;
     }
 
     public List<UserDto> getAll() {
@@ -44,7 +46,6 @@ public class UserService {
         fields.forEach((key, value) -> {
             if (!key.equals("id")) {
                 Field field = ReflectionUtils.findField(User.class, (String) key);
-                assert field != null;
                 field.setAccessible(true);
                 ReflectionUtils.setField(field, user, value);
             }
@@ -53,8 +54,8 @@ public class UserService {
         return UserMapper.toUserDto(newUser);
     }
 
+    @Transactional
     public void delete(Long id) {
         userRepository.deleteById(id);
     }
-
 }
