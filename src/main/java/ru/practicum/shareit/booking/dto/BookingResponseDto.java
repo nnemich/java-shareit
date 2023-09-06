@@ -1,7 +1,6 @@
 package ru.practicum.shareit.booking.dto;
 
 import lombok.*;
-import ru.practicum.shareit.booking.Booking;
 import ru.practicum.shareit.booking.Status;
 import ru.practicum.shareit.item.Item;
 import ru.practicum.shareit.user.User;
