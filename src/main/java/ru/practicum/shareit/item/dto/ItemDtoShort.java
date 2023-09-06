@@ -5,9 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Класс описывает модель ItemDtoShort. Модель передается в ItemRequestResponseDto
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

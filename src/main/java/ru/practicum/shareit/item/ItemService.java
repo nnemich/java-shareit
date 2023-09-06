@@ -25,13 +25,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * Класс описывает ItemService, с основной логикой
- */
-
 @AllArgsConstructor
 @Service
-@Transactional(readOnly = true)
 public class ItemService {
     private final ItemRepository itemRepository;
     private final BookingRepository bookingRepository;

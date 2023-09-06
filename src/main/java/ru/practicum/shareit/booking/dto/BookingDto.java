@@ -11,10 +11,6 @@ import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-/**
- * Класс описывает модель BookingDto
- */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

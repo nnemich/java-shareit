@@ -9,9 +9,6 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-/**
- * Класс описывает модель User
- */
 @Data
 @Builder
 @NoArgsConstructor
@@ -31,4 +28,9 @@ public class User {
     @NotBlank(message = "Email не может быть пустым")
     @Email(message = "Электронная почта не может быть пустой и должна содержать символ @")
     private String email;
+
+    public User(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

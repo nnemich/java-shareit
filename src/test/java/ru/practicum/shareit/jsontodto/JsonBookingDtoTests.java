@@ -9,6 +9,8 @@ import ru.practicum.shareit.booking.Status;
 import ru.practicum.shareit.booking.dto.BookingDto;
 import ru.practicum.shareit.booking.dto.BookingDtoForItem;
 import ru.practicum.shareit.booking.dto.BookingResponseDto;
+import ru.practicum.shareit.item.Item;
+import ru.practicum.shareit.user.User;
 
 import java.time.LocalDateTime;
 
@@ -80,7 +82,7 @@ public class JsonBookingDtoTests {
         LocalDateTime start = LocalDateTime.now().withNano(000000);
         LocalDateTime end = LocalDateTime.now().withNano(000000).plusDays(1);
 
-        BookingResponseDto bookingResponseDtoNew = new BookingResponseDto(1L, new BookingResponseDto.Item(), start, end, new BookingResponseDto.Booker(), Status.REJECTED);
+        BookingResponseDto bookingResponseDtoNew = new BookingResponseDto(1L, new Item(), start, end, new User(), Status.REJECTED);
 
         JsonContent<BookingResponseDto> result = jsonBookingResponseDto.write(bookingResponseDtoNew);
 

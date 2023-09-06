@@ -8,11 +8,6 @@ import ru.practicum.shareit.booking.Status;
 
 import java.time.LocalDateTime;
 
-/**
- * Класс описывает модель BookingDtoForItem. Модель передается при маппинге Item
- * (в нем требуется поле с особым названием "bookerId")
- */
-
 @Data
 @Builder
 @NoArgsConstructor

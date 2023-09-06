@@ -8,9 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-/**
- * Класс описывает модель ItemRequest
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

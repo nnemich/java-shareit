@@ -67,7 +67,7 @@ public class CommentControllerTest {
                 .id(1L)
                 .authorName(commentDto.getAuthorName())
                 .created(commentDto.getCreated())
-                .item(new CommentResponseDto.Item(item.getId(), item.getName()))
+                .item(new Item(item.getId(), item.getName()))
                 .text(commentDto.getText())
                 .build();
     }

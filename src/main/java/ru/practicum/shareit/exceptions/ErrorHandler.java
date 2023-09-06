@@ -12,10 +12,6 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 
 import javax.validation.ConstraintViolationException;
 
-/**
- * Класс описывающий ErrorHandler для централизованной обработки ошибок.
- */
-
 @RestControllerAdvice
 @Slf4j
 public class ErrorHandler {

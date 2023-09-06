@@ -8,10 +8,6 @@ import ru.practicum.shareit.request.dto.ItemRequestResponseDto;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * Класс описывает ItemRequestMapper, переводит ItemRequest в ДТО и обратно
- */
-
 @UtilityClass
 public class ItemRequestMapper {
     public ItemRequest toItemRequest(ItemRequestDto dto, Long userId) {

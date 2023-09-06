@@ -3,10 +3,6 @@ package ru.practicum.shareit.user;
 import lombok.experimental.UtilityClass;
 import ru.practicum.shareit.user.dto.UserDto;
 
-/**
- * Класс описывает UserMapper, переводит USER в ДТО и обратно
- */
-
 @UtilityClass
 public class UserMapper {
     public UserDto toUserDto(User newUser) {

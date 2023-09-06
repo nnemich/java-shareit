@@ -15,16 +15,6 @@ import javax.validation.constraints.Positive;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Класс описывает ItemController с следующими энпоинтами
- * - GET /items/{id} -  получать данные вещи по идентификатору
- * - GET /items/ -  получать данные всех вещей
- * - POST /items/ -  добавлять вещь в память
- * - PATCH /items/{id} - обновление вещи по id
- * - DELETE  /items/{id} - удаление вещи по id
- * - POST /items/{itemId}/comment - Добавление отзывов  на вещь после того, как взяли её в аренду
- */
-
 @RestController
 @RequestMapping("/items")
 @Slf4j

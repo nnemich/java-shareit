@@ -5,10 +5,6 @@ import ru.practicum.shareit.user.User;
 
 import java.util.List;
 
-/**
- * Класс описывает interface ItemRepository хранение в базе данных
- */
-
 public interface ItemRepository extends JpaRepository<Item, Long> {
     List<Item> findAllByOwnerOrderById(User user);
 

@@ -13,10 +13,10 @@ public class BookingMapper {
     public BookingResponseDto toBookingDto(Booking booking) {
         return BookingResponseDto.builder()
                 .id(booking.getId())
-                .item(new BookingResponseDto.Item(booking.getItem().getId(), booking.getItem().getName()))
+                .item(new Item(booking.getItem().getId(), booking.getItem().getName()))
                 .start(booking.getStart())
                 .end(booking.getEnd())
-                .booker(new BookingResponseDto.Booker(booking.getBooker().getId(), booking.getBooker().getName()))
+                .booker(new User(booking.getBooker().getId(), booking.getBooker().getName()))
                 .status(booking.getStatus())
                 .build();
     }

@@ -7,10 +7,6 @@ import ru.practicum.shareit.user.User;
 
 import java.time.LocalDateTime;
 
-/**
- * Класс описывает CommentMapper, переводит Comment в ДТО и обратно
- */
-
 @UtilityClass
 public class CommentMapper {
     public CommentDto toCommentDto(Comment comment, User author) {
@@ -39,7 +35,7 @@ public class CommentMapper {
                 .authorName(comment.getAuthorName())
                 .created(LocalDateTime.now())
                 .text(comment.getText())
-                .item(new CommentResponseDto.Item(
+                .item(new Item(
                         comment.getItem().getId(),
                         comment.getItem().getName()))
                 .build();

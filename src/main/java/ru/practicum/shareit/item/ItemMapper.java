@@ -16,10 +16,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Класс описывает ItemMapper, переводит итем в ДТО и обратно
- */
-
 @UtilityClass
 public class ItemMapper {
     public ItemDtoShort toItemDtoShort(Item item) {
@@ -75,7 +71,7 @@ public class ItemMapper {
                 .id(item.getId())
                 .name(item.getName())
                 .description(item.getDescription())
-                .owner(new ItemResponseDto.Owner(item.getOwner().getId(), item.getOwner().getName()))
+                .owner(new User(item.getOwner().getId(), item.getOwner().getName()))
                 .available(item.getAvailable())
                 .lastBooking(bookingLast)
                 .nextBooking(bookingNext)

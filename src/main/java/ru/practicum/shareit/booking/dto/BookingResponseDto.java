@@ -1,13 +1,12 @@
 package ru.practicum.shareit.booking.dto;
 
 import lombok.*;
+import ru.practicum.shareit.booking.Booking;
 import ru.practicum.shareit.booking.Status;
+import ru.practicum.shareit.item.Item;
+import ru.practicum.shareit.user.User;
 
 import java.time.LocalDateTime;
-
-/**
- * Класс описывает модель BookingResponseDto. Модель передается клиенту
- */
 
 @Data
 @Builder
@@ -19,24 +18,6 @@ public class BookingResponseDto {
     private Item item;
     private LocalDateTime start;
     private LocalDateTime end;
-    private Booker booker;
+    private User booker;
     private Status status;
-
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class Booker {
-        private long id;
-        private String name;
-    }
-
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class Item {
-        private long id;
-        private String name;
-    }
 }

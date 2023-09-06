@@ -8,9 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-/**
- * Класс описывает модель UserDto
- */
 @Data
 @Builder
 @AllArgsConstructor

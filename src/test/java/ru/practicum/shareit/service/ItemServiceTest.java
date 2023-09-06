@@ -233,7 +233,7 @@ class ItemServiceTest {
         assertEquals(booker.getName(), commentResponseDto.getAuthorName());
         assertEquals(item.getId(), commentResponseDto.getItem().getId());
 
-        commentResponseDto.setItem(new CommentResponseDto.Item());
+        commentResponseDto.setItem(new Item());
         assertNotNull(commentResponseDto.getItem());
     }
 
@@ -242,7 +242,7 @@ class ItemServiceTest {
         Long id = 1L;
         String name = "Test Item";
         String description = "Test Description";
-        ItemResponseDto.Owner owner = new ItemResponseDto.Owner(2L, "Test Owner");
+        User owner = new User(2L, "Test Owner");
         Boolean available = true;
         Long requestId = 3L;
         BookingDtoForItem lastBooking = new BookingDtoForItem();
@@ -322,7 +322,7 @@ class ItemServiceTest {
 
         List<CommentResponseDto> comments = new ArrayList<>();
 
-        ItemResponseDto.Owner ownerDto = new ItemResponseDto.Owner(ownerId, ownerName);
+        User ownerDto = new User(ownerId, ownerName);
 
         BookingDtoForItem bookingLastDto = new BookingDtoForItem();
         bookingLastDto.setId(booking1.getId());

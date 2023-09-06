@@ -15,10 +15,6 @@ import ru.practicum.shareit.user.UserService;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Класс описывает ItemRequestService, с основной логикой
- */
-
 @Service
 @RequiredArgsConstructor
 public class ItemRequestService {

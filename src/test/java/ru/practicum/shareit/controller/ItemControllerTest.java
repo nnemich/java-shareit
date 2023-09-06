@@ -54,7 +54,7 @@ public class ItemControllerTest {
                 .id(1L)
                 .name(item.getName())
                 .description(item.getDescription())
-                .owner(new ItemResponseDto.Owner(owner.getId(), owner.getName()))
+                .owner(new User(owner.getId(), owner.getName()))
                 .available(true)
                 .build();
 

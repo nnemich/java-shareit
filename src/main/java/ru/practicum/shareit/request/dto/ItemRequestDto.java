@@ -8,10 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-/**
- * Класс описывает модель ItemRequestDto. Модель принимается от клиента
- */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

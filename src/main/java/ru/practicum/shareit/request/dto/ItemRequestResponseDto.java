@@ -10,10 +10,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Класс описывает модель ItemRequestResponseDto. Модель передается клиенту
- */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

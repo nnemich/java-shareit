@@ -9,10 +9,6 @@ import ru.practicum.shareit.item.Item;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
-/**
- * Класс описывает модель CommentDto.
- */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

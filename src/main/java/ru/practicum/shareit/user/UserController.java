@@ -12,14 +12,6 @@ import javax.validation.constraints.Positive;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Класс описывает UserController с следующими энпоинтами
- * - GET /users/{id} -  получать пользователя по идентификатору
- * - GET /users/ -  получать всех пользователей
- * - POST /users/ -  добавлять пользователя в память
- * - PATCH /users/{id} - обновление пользователя по id
- * - DELETE  /users/{id} - удаление пользователя по id
- */
 @RestController
 @RequestMapping(path = "/users")
 @Validated

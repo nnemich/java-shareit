@@ -58,8 +58,8 @@ class BookingServiceMokTest {
                 .status(Status.WAITING)
                 .start(booking.getStart())
                 .end(booking.getEnd())
-                .item(new BookingResponseDto.Item(item.getId(), item.getName()))
-                .booker(new BookingResponseDto.Booker(booker.getId(), booker.getName()))
+                .item(new Item(item.getId(), item.getName()))
+                .booker(new User(booker.getId(), booker.getName()))
                 .build();
 
     }

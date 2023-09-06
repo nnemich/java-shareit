@@ -7,9 +7,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-/**
- * Класс описывает модель Item
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -37,4 +34,9 @@ public class Item {
     private Boolean available;
     @Column(name = "request")
     private Long requestId;
+
+    public Item(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
