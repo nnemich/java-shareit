@@ -8,7 +8,7 @@ package ru.practicum.shareit.booking;
  * PAST — завершённые,
  * REJECTED — отклонённые,
  * FUTURE — будущие.
- */
+ * */
 public enum State {
     ALL, WAITING, CURRENT, PAST, REJECTED, FUTURE
 }

@@ -8,9 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-/**
- * Класс описывает модель/сущность Comment
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,6 +15,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "comments")
 public class Comment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id")
@@ -31,5 +29,4 @@ public class Comment {
     private String authorName;
     @Column(name = "created")
     private LocalDateTime created;
-
 }

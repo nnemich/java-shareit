@@ -7,13 +7,10 @@ import lombok.NoArgsConstructor;
 import ru.practicum.shareit.item.Item;
 import ru.practicum.shareit.user.User;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.*;
 
-/**
-* Класс описывает модель Booking
- * */
+import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,6 +18,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "bookings")
 public class Booking {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "booking_id")

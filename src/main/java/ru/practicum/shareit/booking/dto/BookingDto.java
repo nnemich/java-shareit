@@ -11,15 +11,12 @@ import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-/**
- * Класс описывает модель BookingDto
- */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class BookingDto {
+
     private Long id;
     @NotNull(message = "itemId не может быть пустым")
     private Long itemId;

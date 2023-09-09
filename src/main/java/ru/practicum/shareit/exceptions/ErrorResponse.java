@@ -1,12 +1,7 @@
 package ru.practicum.shareit.exceptions;
 
-/**
- * Класс описывающий модель ответа ошибок ErrorResponse
- */
-
 public class ErrorResponse {
     private final String error;
-
     private String description;
 
     public ErrorResponse(String error, String description) {
