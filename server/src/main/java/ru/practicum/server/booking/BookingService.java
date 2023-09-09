@@ -19,10 +19,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Класс описывает BookingService, с основной логикой
- */
-
 @AllArgsConstructor
 @Service
 @Transactional(readOnly = true)
